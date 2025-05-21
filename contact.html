@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | Ziar Barhoumi</title>
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="glass-nav">
+    <div class="logo"><strong>ZB</strong></div>
+    <ul class="nav-links">
+      <li><a href="index.html" class="nav-item">Accueil</a></li>
+      <li><a href="about.html" class="nav-item">À propos</a></li>
+      <li><a href="projects.html" class="nav-item">Projets</a></li>
+      <li><a href="contact.html" class="nav-item active">Contact</a></li>
+    </ul>
+  </header>
+
+  <!-- Hero -->
+  <section class="project-hero">
+    <h1 class="hero-title">
+      <span>Contact</span>
+    </h1>
+    <p class="hero-subtitle">
+      Un projet, une question, ou une collaboration ? Envoyez-moi un message.
+    </p>
+  </section>
+
+  <!-- Formulaire -->
+  <section>
+    <form action="https://formspree.io/f/xqaqozdq" method="POST">
+      <label for="name">Nom complet</label>
+      <input type="text" id="name" name="name" required placeholder="Votre nom complet" />
+
+      <label for="email">Adresse email</label>
+      <input type="email" id="email" name="email" required placeholder="votre@email.com" />
+
+      <label for="subject">Sujet</label>
+      <input type="text" id="subject" name="subject" placeholder="Objet du message" />
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" required placeholder="Votre message ici..."></textarea>
+
+      <button type="submit" class="cta-btn">Envoyer <i class="fas fa-paper-plane"></i></button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="glass-footer">
+    <p>&copy; 2025 Ziar Barhoumi. Portfolio personnel.</p>
+    <div class="footer-links">
+      <a href="#">Mentions légales</a>
+      <a href="#">Confidentialité</a>
+    </div>
+  </footer>
+
+  <!-- Script placé correctement -->
+  <script src="js/app.js" defer></script>
+</body>
+</html>
