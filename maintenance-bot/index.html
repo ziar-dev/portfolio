@@ -3,31 +3,26 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Assistant Maintenance IA</title>
-  <link rel="stylesheet" href="public/style.css" />
+  <title>Bot IA Maintenance PC</title>
+  <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
 </head>
 <body>
   <main class="bot-container">
-
-    <!-- 💬 Interface Chat -->
     <section class="chat-section">
-      <header class="chat-header">🧠 Assistant IA - Maintenance PC</header>
-
+      <header class="chat-header">🧠 Technicien IA - Diagnostic Maintenance</header>
       <div class="chat-box" id="chat-box">
         <div class="chat-message bot">
-          Bonjour 👋 Je suis un assistant de maintenance basé sur l'intelligence artificielle.
-          Décrivez-moi votre problème informatique et je vais tenter de vous aider au mieux.
+          Bonjour 👋 Je suis votre assistant IA en maintenance. Décrivez-moi votre problème informatique (ex: Wi-Fi, lenteur, stockage...), et je vais établir un diagnostic personnalisé.
         </div>
       </div>
-
       <form id="chat-form" class="chat-form">
-        <input type="text" id="user-input" placeholder="Ex : Mon PC n'a plus de Wi-Fi..." autocomplete="off" required />
+        <input type="text" id="user-input" placeholder="Décrivez votre souci technique..." autocomplete="off" required />
         <button type="submit">Envoyer</button>
       </form>
     </section>
-
   </main>
+
   <script src="bot.js"></script>
 </body>
 </html>

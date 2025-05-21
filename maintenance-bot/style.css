@@ -1,4 +1,4 @@
-/* RESET GÉNÉRAL */
+/* RESET GLOBAL */
 * {
   margin: 0;
   padding: 0;
@@ -14,7 +14,7 @@ html, body {
 
 /* CONTAINER PRINCIPAL */
 .bot-container {
-  max-width: 480px;
+  max-width: 520px;
   margin: 0 auto;
   padding: 2rem 1rem;
   display: flex;
@@ -22,7 +22,7 @@ html, body {
   gap: 2rem;
 }
 
-/* SECTION DU CHAT */
+/* SECTION DE CHAT */
 .chat-section {
   background: white;
   border-radius: 16px;
@@ -34,7 +34,7 @@ html, body {
   height: 80vh;
 }
 
-/* HEADER DU CHAT */
+/* EN-TÊTE DU CHAT */
 .chat-header {
   background-color: #fff;
   padding: 1rem;
@@ -44,7 +44,7 @@ html, body {
   border-bottom: 1px solid #e5e5ea;
 }
 
-/* ZONE DE CHAT */
+/* ZONE DE MESSAGES */
 .chat-box {
   flex: 1;
   padding: 1rem;
@@ -78,7 +78,7 @@ html, body {
   color: white;
 }
 
-/* FORMULAIRE EN BAS */
+/* FORMULAIRE D’ENVOI */
 .chat-form {
   display: flex;
   padding: 0.75rem;
@@ -111,11 +111,11 @@ html, body {
   background-color: #005fcc;
 }
 
-/* SCROLLBAR (discret) */
+/* SCROLLBAR MINIMALISTE */
 .chat-box::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 .chat-box::-webkit-scrollbar-thumb {
-  background-color: #d4d4d4;
+  background-color: #ccc;
   border-radius: 4px;
 }

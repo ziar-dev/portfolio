@@ -1,4 +1,4 @@
-// /api/chat.js — fonction serverless pour Vercel
+// /api/chat.js — route API sécurisée exécutée par Vercel côté serveur
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Méthode non autorisée' });
@@ -13,7 +13,7 @@ export default async function handler(req, res) {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
-        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`, // Sécurisé ici !
+        "Authorization": `Bearer ${process.env.OPENAI_API_KEY}`,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({
@@ -22,7 +22,7 @@ export default async function handler(req, res) {
           {
             role: "system",
             content:
-              "Tu es un technicien informatique. Lorsque l’utilisateur décrit un problème (ex: Wifi, disque dur, lenteur…), tu poses 1 ou 2 questions techniques si nécessaire, puis tu fournis un diagnostic structuré, avec des causes probables, des recommandations claires, et un ton rassurant."
+              "Tu es un technicien informatique professionnel. Pose des questions techniques si nécessaire, puis donne un diagnostic structuré avec des causes probables, des solutions possibles et un ton rassurant."
           },
           { role: "user", content: message }
         ],
@@ -31,10 +31,12 @@ export default async function handler(req, res) {
     });
 
     const data = await response.json();
-    const reply = data.choices?.[0]?.message?.content || "Réponse vide. Essayez à nouveau.";
+    const reply = data.choices?.[0]?.message?.content || "Je n’ai pas pu établir de diagnostic. Essayez à nouveau.";
 
     return res.status(200).json({ reply });
+
   } catch (err) {
+    console.error("Erreur API OpenAI :", err);
     return res.status(500).json({ message: "Erreur serveur IA", error: err.message });
   }
 }

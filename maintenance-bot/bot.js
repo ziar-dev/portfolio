@@ -2,7 +2,7 @@ const chatBox = document.getElementById("chat-box");
 const chatForm = document.getElementById("chat-form");
 const userInput = document.getElementById("user-input");
 
-// Ajoute un message dans l'interface
+// Fonction pour afficher un message dans le chat
 function addMessage(text, sender = "bot") {
   const msg = document.createElement("div");
   msg.classList.add("chat-message", sender);
@@ -11,7 +11,7 @@ function addMessage(text, sender = "bot") {
   chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-// Envoie le message à ton backend sécurisé (API route Vercel)
+// Fonction pour appeler l’API OpenAI via ton backend sécurisé
 async function sendToChatGPT(message) {
   addMessage("Analyse en cours... ⏳", "bot");
 
@@ -24,15 +24,13 @@ async function sendToChatGPT(message) {
 
     const data = await response.json();
 
-    // Supprime le message "Analyse en cours"
-    document.querySelector(".bot:last-of-type").remove();
-
-    // Affiche la réponse de ChatGPT
-    addMessage(data.reply || "Je n’ai pas pu obtenir de réponse. Essayez de reformuler.", "bot");
+    document.querySelector(".bot:last-of-type").remove(); // supprime "Analyse en cours"
+    addMessage(data.reply || "❌ Aucun diagnostic reçu. Réessayez.", "bot");
 
   } catch (error) {
     document.querySelector(".bot:last-of-type").remove();
-    addMessage("❌ Erreur : impossible de contacter l’IA. Vérifiez la connexion ou réessayez plus tard.", "bot");
+    addMessage("❌ Une erreur est survenue. Veuillez réessayer plus tard.", "bot");
+    console.error("Erreur lors de l'appel API :", error);
   }
 }
 
@@ -44,6 +42,5 @@ chatForm.addEventListener("submit", async (e) => {
 
   addMessage(message, "user");
   userInput.value = "";
-
   await sendToChatGPT(message);
 });
